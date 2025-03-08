@@ -25,23 +25,25 @@ public class BonusServisTest {
         long actual = service.calculate(amount, registered);
         Assertions.assertEquals(expected, actual);
     }
-@Test
-    public void testRegistredBeyondlimit() {
-    BonusServis service = new BonusServis();
-    int expected = 500;
-    long amount = 100_000;
-    boolean registered = true;
-    long actual = service.calculate(amount, registered);
-    Assertions.assertEquals(expected, actual);
-}
+
     @Test
-    public void testUnderegistredBeyondlimit(){
+    public void testRegistredBeyondlimit() {
+        BonusServis service = new BonusServis();
+        int expected = 500;
+        long amount = 100_000;
+        boolean registered = true;
+        long actual = service.calculate(amount, registered);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testUnderegistredBeyondlimit() {
         BonusServis service = new BonusServis();
         int expected = 500;
         long amount = 70_000;
         boolean registered = false;
         long actual = service.calculate(amount, registered);
         Assertions.assertEquals(expected, actual);
-}
+    }
 
 }
